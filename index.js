@@ -19,23 +19,40 @@ connectToMongo();
 
 const port = 5000
 
-const app = express()
 
-// create application/json parser
-app.use(bodyParser.json())
-// create application/x-www-form-urlencoded parser
-app.use(bodyParser.urlencoded({ extended: false }))
-app.use(express.urlencoded({ extended: true }))
+const express = require('express');
+const app = express();
 
-
-app.use(express.json())
 app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', 'https://frontend-gamma-five-43.vercel.app');
-    res.header('Access-Control-Allow-Credentials', 'true');
-    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
-    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
-    next();
+  // Set the Access-Control-Allow-Origin header to allow requests from your frontend origin
+  res.setHeader('Access-Control-Allow-Origin', 'https://frontend-five-phi-97.vercel.app');
+  // You might need to allow other headers and methods depending on your requests
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  next();
 });
+
+// Your API routes here
+app.get('/api/product/fetchproduct', (req, res) => {
+  // ... your logic to fetch product data
+  res.json({ message: 'Product data' });
+});
+
+// ... other routes
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
+
+
+
+
+
+
+
+
+
 
 
 app.use(express.json())
