@@ -54,10 +54,7 @@ app.use('/api', paymentRoute)
 // forgot Password route
 app.use('/api/password', forgotPassword)
 
-// Define a route for the root path
-app.get('/', (req, res) => {
-  res.send('Welcome to the E-commerce backend!');
-});  
+
 
 
 app.listen(port, () => {
