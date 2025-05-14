@@ -30,7 +30,11 @@ app.use(express.urlencoded({ extended: true }))
 
 
 app.use(express.json())
-app.use(cors());
+app.use(cors({
+    origin: 'https://frontend-gamma-five-43.vercel.app',
+    credentials: true
+}));
+
 app.use(express.static(path.join(__dirname, 'build')));
 
 // app.get('/', function (req, res) {
