@@ -56,7 +56,7 @@ app.use('/api/password', forgotPassword)
 
 // Root route handler
 app.get('/', (req, res) => {
-    res.send('Backend is running');
+    res.json({ message: 'Backend is running' });
 });
 
 
