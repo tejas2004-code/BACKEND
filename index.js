@@ -33,13 +33,14 @@ app.use(express.json())
 app.use(cors({
     origin: [
         'http://localhost:3000',
-        'https://shopstop-five.vercel.app'
+        'https://shopstop-five.vercel.app',
         'https://shopstop-gamma.vercel.app'
     ],
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization']
 }));
+
 // Add a root route for better UX
 app.get('/', (req, res) => {
     res.json({ 
