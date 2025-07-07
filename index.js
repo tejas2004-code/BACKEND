@@ -34,6 +34,7 @@ app.use(cors({
     origin: [
         'http://localhost:3000',
         'https://shopstop-five.vercel.app'
+        'https://shopstop-gamma.vercel.app'
     ],
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
