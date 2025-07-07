@@ -33,9 +33,7 @@ app.use(express.json())
 app.use(cors({
     origin: [
         'http://localhost:3000',
-        'https://mern-ecommerce-frontend.vercel.app',
-        'https://mern-ecommerce-frontend-git-main-tejas-ghadigaonkars-projects.vercel.app',
-        'https://mern-ecommerce-frontend-tejas-ghadigaonkars-projects.vercel.app'
+        'https://shopstop-five.vercel.app'
     ],
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
