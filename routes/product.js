@@ -38,18 +38,16 @@ router.post('/fetchproduct/type', async (req, res) => {
     }
 })
 // to get products category wise
-router.post('/c', async (req, res) => {
-    const { userType, userCategory } = req.body
-  
-      try {
-            const product = await Product.find({ type: userType, category: userCategory })
-            res.send(product);
-     
+router.get('/category/:category', async (req, res) => {
+    try {
+        const { category } = req.params;
+        const products = await Product.find({ category: { $regex: new RegExp(category, 'i') } }); // case-insensitive
+        res.json(products);
     } catch (error) {
-        res.status(500).send("Something went wrong")
-        console.log(error);
+        console.error('Error fetching products by category:', error.message);
+        res.status(500).json({ message: 'Server error fetching category products' });
     }
-})
+});
 
 
 
